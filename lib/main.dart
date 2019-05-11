@@ -40,7 +40,8 @@ class _HomeState extends State<Home> {
       ],
     );
 
-    Icon icon = Icon(Icons.wb_sunny, size: 80, color: Colors.pinkAccent,);
+    Image imgLogo = Image.asset("assets/images/logo.png", height: 120, width: 120,);
+    //Icon icon = Icon(Icons.wb_sunny, size: 80, color: Colors.pinkAccent,);
     TextStyle styleDecoration = TextStyle(color: Colors.black, fontSize: 20);
     TextStyle styleField = TextStyle(color: Colors.pink);
 
@@ -89,17 +90,17 @@ class _HomeState extends State<Home> {
       textAlign: TextAlign.center,
       style: styleField,
       controller: fahrenheitController,
-      validator: (value){
+      /*validator: (value){
         if (value.isEmpty){
           return "Informe um Valor";
         }
-      },
+      },*/
     );
 
     Column colum = Column (
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        icon, tempCelsius, tempFahrenheit, padding,
+        imgLogo, tempCelsius, tempFahrenheit, padding,
       ],
     );
 
