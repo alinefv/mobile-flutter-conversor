@@ -13,6 +13,8 @@ class _HomeState extends State<Home> {
   TextEditingController celciusController = TextEditingController();
   TextEditingController fahrenheitController = TextEditingController();
 
+  GlobalKey<FormState> _formKey = GlobalKey <FormState>();
+
   void _resetFields (){
     celciusController.text = "";
     fahrenheitController.text = "";
@@ -43,7 +45,11 @@ class _HomeState extends State<Home> {
     TextStyle styleField = TextStyle(color: Colors.pink);
 
     RaisedButton raisedButton = RaisedButton(
-     onPressed: _converter,
+     onPressed: (){
+       if (_formKey.currentState.validate()){
+         _converter();
+       }
+     },
      child: Text("Calcular"),
      color: Colors.deepPurple
     );
@@ -58,17 +64,24 @@ class _HomeState extends State<Home> {
         child: containerBtn,
     );
 
-    TextField tempCelsius = TextField(keyboardType: TextInputType.number,
-    decoration: InputDecoration(
+    TextFormField tempCelsius = TextFormField (
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
         labelText: "Temperatura em Graus Celsius",
         labelStyle: styleDecoration,
     ),
       textAlign: TextAlign.center,
       style: styleField,
       controller: celciusController,
+      validator: (value){
+        if (value.isEmpty){
+          return "Informe um Valor";
+        }
+      },
     );
 
-    TextField tempFahrenheit = TextField(keyboardType: TextInputType.number,
+    TextFormField tempFahrenheit = TextFormField(
+      keyboardType: TextInputType.number,
       decoration: InputDecoration(
           labelText: "Temperatura em Graus Fahrenheit",
           labelStyle: styleDecoration,
@@ -76,6 +89,11 @@ class _HomeState extends State<Home> {
       textAlign: TextAlign.center,
       style: styleField,
       controller: fahrenheitController,
+      validator: (value){
+        if (value.isEmpty){
+          return "Informe um Valor";
+        }
+      },
     );
 
     Column colum = Column (
@@ -85,8 +103,13 @@ class _HomeState extends State<Home> {
       ],
     );
 
-    SingleChildScrollView singleChildScrollView = SingleChildScrollView(
+    Form form = Form(
       child: colum,
+    key: _formKey,
+    );
+
+    SingleChildScrollView singleChildScrollView = SingleChildScrollView(
+      child: form,
       padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
     );
 
