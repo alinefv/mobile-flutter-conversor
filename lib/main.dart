@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
     AppBar appBar = AppBar(
       title: Text("Conversor de Temperatura"),
       centerTitle: true,
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.pinkAccent,
       actions: <Widget>[
         IconButton(
             icon: Icon(Icons.refresh),
