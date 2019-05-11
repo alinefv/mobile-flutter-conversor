@@ -16,15 +16,23 @@ class _HomeState extends State<Home> {
     AppBar appBar = AppBar(
       title: Text("Conversor de Temperatura"),
       centerTitle: true,
-      backgroundColor: Colors.pinkAccent,
+      backgroundColor: Colors.deepPurple,
       actions: <Widget>[
         IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () {},),
       ],
     );
+
+    Column colum = Column (
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[],
+    );
+
     Scaffold scaffold = Scaffold(
       appBar: appBar,
+      backgroundColor: Colors.white70,
+      body: colum,
     );
     return scaffold;
   }
