@@ -18,6 +18,12 @@ class _HomeState extends State<Home> {
     fahrenheitController.text = "";
   }
 
+  void _converter(){
+    double celcius = double.parse(celciusController.text);
+    double fahrenheit = celcius * 1.8 + 32.0;
+    fahrenheitController.text = fahrenheit.toStringAsFixed(4);
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -37,7 +43,7 @@ class _HomeState extends State<Home> {
     TextStyle styleField = TextStyle(color: Colors.pink);
 
     RaisedButton raisedButton = RaisedButton(
-     onPressed: () {},
+     onPressed: _converter,
      child: Text("Calcular"),
      color: Colors.deepPurple
     );
