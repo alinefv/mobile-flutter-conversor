@@ -24,10 +24,22 @@ class _HomeState extends State<Home> {
       ],
     );
 
-    Icon icon = Icon(Icons.wb_sunny, size: 120, color: Colors.pinkAccent,);
+    Icon icon = Icon(Icons.wb_sunny, size: 80, color: Colors.pinkAccent,);
+
     TextStyle styleDecoration = TextStyle(color: Colors.black, fontSize: 20);
+
     TextStyle styleField = TextStyle(color: Colors.pink);
 
+    RaisedButton raisedButton = RaisedButton(
+     onPressed: () {},
+     child: Text("Calcular"),
+     color: Colors.deepPurple
+    );
+
+    Container containerBtn = Container(
+      height: 50.0,
+      child: raisedButton,
+    );
 
     TextField tempCelsius = TextField(keyboardType: TextInputType.number,
     decoration: InputDecoration(
@@ -50,7 +62,7 @@ class _HomeState extends State<Home> {
     Column colum = Column (
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        icon, tempCelsius, tempFahrenheit,
+        icon, tempCelsius, tempFahrenheit, containerBtn,
       ],
     );
 
