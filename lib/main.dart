@@ -24,9 +24,13 @@ class _HomeState extends State<Home> {
       ],
     );
 
+    Icon icon = Icon(Icons.wb_sunny, size: 120, color: Colors.blue,);
+
     Column colum = Column (
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[],
+      children: <Widget>[
+        icon,
+      ],
     );
 
     Scaffold scaffold = Scaffold(
